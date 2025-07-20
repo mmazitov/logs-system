@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 
+// Modal component renders its children inside a centered overlay dialog
 const Modal = ({ children }: { children: ReactNode }) => {
 	return (
 		<div

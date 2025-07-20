@@ -9,6 +9,7 @@ import { formatDate } from '../../utils/helpers/formatDate';
 import Button from '../UI/Button';
 import Input from '../UI/Input';
 
+// Props for DesktopLayout, including data and handlers for editing/deleting
 interface DesktopLayoutProps {
 	paginatedData: Log[];
 	editField: { id: string | null; field: 'owner' | 'text' | null };
@@ -20,6 +21,7 @@ interface DesktopLayoutProps {
 	setDeleteModalOpen: (open: boolean) => void;
 }
 
+// Column widths and classes for table layout
 const colsWidths = [
 	'w-32',
 	'w-40',
@@ -29,6 +31,7 @@ const colsWidths = [
 ];
 const colsClass = 'px-4 py-2 border-gray-100 border-b';
 
+// DesktopLayout renders logs in a table for desktop screens
 const DesktopLayout = ({
 	paginatedData,
 	editField,
@@ -39,6 +42,7 @@ const DesktopLayout = ({
 	setDeleteId,
 	setDeleteModalOpen,
 }: DesktopLayoutProps) => {
+	// Memoize column widths and classes for performance
 	const memoizedColsWidths = useMemo(() => colsWidths, []);
 	const memoizedColsClass = useMemo(() => colsClass, []);
 	return (
@@ -46,6 +50,7 @@ const DesktopLayout = ({
 			<table className="bg-white shadow-sm border border-gray-200 rounded-lg w-full min-w-full table-fixed">
 				<thead>
 					<tr className="bg-gray-100">
+						{/* Render table headings */}
 						{logsHeading.map((heading, key: number) => (
 							<th
 								key={key}
@@ -57,12 +62,14 @@ const DesktopLayout = ({
 					</tr>
 				</thead>
 				<tbody>
+					{/* Render each log as a table row */}
 					{paginatedData.map((log, idx) => (
 						<tr
 							key={log.id}
 							className={idx % 2 === 0 ? 'bg-gray-50' : 'bg-white'}
 						>
 							<td className={`${memoizedColsClass} ${memoizedColsWidths[0]}`}>
+								{/* Owner cell: edit mode or display mode */}
 								{editField.id === log.id && editField.field === 'owner' ? (
 									<div className="flex justify-between items-center gap-2">
 										<Input
@@ -94,14 +101,17 @@ const DesktopLayout = ({
 							<td
 								className={`${memoizedColsClass} ${memoizedColsWidths[1]} text-gray-500 text-xs`}
 							>
+								{/* Created date */}
 								{formatDate(log.createdAt)}
 							</td>
 							<td
 								className={`${memoizedColsClass} ${memoizedColsWidths[2]} text-gray-500 text-xs`}
 							>
+								{/* Updated date */}
 								{formatDate(log.updatedAt)}
 							</td>
 							<td className={`${memoizedColsClass} ${memoizedColsWidths[3]}`}>
+								{/* Text cell: edit mode or display mode */}
 								{editField.id === log.id && editField.field === 'text' ? (
 									<div className="flex justify-between items-center gap-2">
 										<Input
@@ -133,6 +143,7 @@ const DesktopLayout = ({
 							<td
 								className={`${memoizedColsClass} ${memoizedColsWidths[4]} flex gap-2`}
 							>
+								{/* Delete button for the log */}
 								<Button
 									onClick={() => {
 										setDeleteId(log.id);

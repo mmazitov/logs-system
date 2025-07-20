@@ -1,5 +1,6 @@
 import React from 'react';
 
+// ButtonProps defines the props required for the Button component
 interface ButtonProps {
 	onClick: () => void;
 	className?: string;
@@ -9,6 +10,7 @@ interface ButtonProps {
 	hidden?: boolean;
 }
 
+// Button is a memoized button component with accessibility and styling
 const Button = React.memo(
 	({
 		onClick,

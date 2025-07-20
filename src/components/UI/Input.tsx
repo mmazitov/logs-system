@@ -1,5 +1,6 @@
 import React from 'react';
 
+// InputProps defines the props required for the Input component
 interface InputProps {
 	name: string;
 	value: string;
@@ -9,6 +10,7 @@ interface InputProps {
 	disabled?: boolean;
 }
 
+// Input is a memoized text input component with accessibility features
 const Input = React.memo(
 	({
 		name,

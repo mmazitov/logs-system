@@ -7,6 +7,7 @@ import { formatDate } from '../../utils/helpers/formatDate';
 import Button from '../UI/Button';
 import Input from '../UI/Input';
 
+// Props for MobileLayout, including data and handlers for editing/deleting
 interface MobileLayoutProps {
 	paginatedData: Log[];
 	editField: { id: string | null; field: 'owner' | 'text' | null };
@@ -18,6 +19,7 @@ interface MobileLayoutProps {
 	setDeleteModalOpen: (open: boolean) => void;
 }
 
+// MobileLayout renders logs in a card format for mobile screens
 const MobileLayout = ({
 	paginatedData,
 	editField,
@@ -30,6 +32,7 @@ const MobileLayout = ({
 }: MobileLayoutProps) => {
 	return (
 		<div className="sm:hidden flex flex-col gap-4">
+			{/* Render each log as a card */}
 			{paginatedData.map((log) => (
 				<div
 					key={log.id}
@@ -38,6 +41,7 @@ const MobileLayout = ({
 					<div className="flex justify-between items-start gap-2">
 						<span className="font-semibold text-gray-700">Owner:</span>
 						<div>
+							{/* Owner field: edit mode or display mode */}
 							{editField.id === log.id && editField.field === 'owner' ? (
 								<div className="flex justify-between items-start gap-2">
 									<Input
@@ -82,6 +86,7 @@ const MobileLayout = ({
 					<div className="flex justify-between items-start gap-2">
 						<span className="font-semibold text-gray-700">Text:</span>
 						<div>
+							{/* Text field: edit mode or display mode */}
 							{editField.id === log.id && editField.field === 'text' ? (
 								<div className="flex justify-between items-start gap-2">
 									<Input
@@ -112,6 +117,7 @@ const MobileLayout = ({
 						</div>
 					</div>
 					<div className="flex justify-end">
+						{/* Delete button for the log */}
 						<Button
 							onClick={() => {
 								setDeleteId(log.id);

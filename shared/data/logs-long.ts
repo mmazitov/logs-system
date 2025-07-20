@@ -24,6 +24,7 @@ function generateLogs(count: number): Log[] {
 
 	const logs: Log[] = [];
 
+	// Generate an array of log objects with random owners and texts
 	for (let i = 1; i <= count; i++) {
 		const now = new Date();
 		logs.push({
