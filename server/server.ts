@@ -63,7 +63,7 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.resolve(__dirname, '../dist')));
 
 // Для поддержки React Router:
-app.get('*', (_req: Request, res: Response) => {
+app.get('*', (_req, res) => {
 	res.sendFile(path.resolve(__dirname, '../dist', 'index.html'));
 });
 
