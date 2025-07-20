@@ -59,7 +59,7 @@ Before starting 🏁, ensure you have [Git](https://git-scm.com) and [Node.js](h
 
 ```bash
 # Clone this project
-git clone https://github.com/your-username/log-system
+git clone https://github.com/mmazitov/logs-system/tree/main
 
 # Access the project directory
 cd log-system
