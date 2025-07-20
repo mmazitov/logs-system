@@ -16,6 +16,7 @@ A modern React application for managing and tracking log entries. Features inclu
 			</figure>
 		</td>
 </table>
+
 ## Tech Stack
 
 - **[React](https://react.dev/)**: Modern UI library for building interactive interfaces
