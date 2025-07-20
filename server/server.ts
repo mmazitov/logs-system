@@ -1,10 +1,12 @@
 import cors from 'cors';
 import express, { type Request, type Response } from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 import { logs } from '../shared/data/logs-long.ts';
 
 const app = express();
-const PORT = 5001;
+const PORT = process.env.PORT || 5001;
 
 app.use(cors());
 app.use(express.json());
@@ -51,6 +53,18 @@ app.delete('/logs/:id', (req: Request, res: Response) => {
 	} else {
 		res.status(404).json({ error: 'Log not found' });
 	}
+});
+
+// Добавляем для ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Раздача статики
+app.use(express.static(path.resolve(__dirname, '../dist')));
+
+// Для поддержки React Router:
+app.get('*', (_req: Request, res: Response) => {
+	res.sendFile(path.resolve(__dirname, '../dist', 'index.html'));
 });
 
 app.listen(PORT, () => {
