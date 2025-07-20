@@ -7,8 +7,8 @@ const override: CSSProperties = {
 	borderColor: 'red',
 };
 const Spinner = () => {
-	const [loading, setLoading] = useState(true);
-	const [color, setColor] = useState('#43b0a3');
+	const [loading] = useState(true);
+	const [color] = useState('#43b0a3');
 	return (
 		<>
 			<BounceLoader

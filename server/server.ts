@@ -9,7 +9,7 @@ const PORT = 5001;
 app.use(cors());
 app.use(express.json());
 
-app.get('/logs', (req: Request, res: Response) => {
+app.get('/logs', (_req: Request, res: Response) => {
 	console.log('GET /logs called'); // Debug log
 
 	res.json(logs);
