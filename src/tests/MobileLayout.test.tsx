@@ -1,6 +1,5 @@
 import '@testing-library/jest-dom';
 import { fireEvent, render } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
 
 import MobileLayout from '../components/logsLayout/MobileLayout';
 
@@ -46,7 +45,7 @@ describe('MobileLayout', () => {
 	});
 
 	it('calls handleEditStart when edit button is clicked', () => {
-		const handleEditStart = vi.fn();
+		const handleEditStart = jest.fn();
 		const { getAllByTitle } = render(
 			<MobileLayout
 				paginatedData={[log]}
@@ -64,8 +63,8 @@ describe('MobileLayout', () => {
 	});
 
 	it('calls setDeleteId and setDeleteModalOpen when delete button is clicked', () => {
-		const setDeleteId = vi.fn();
-		const setDeleteModalOpen = vi.fn();
+		const setDeleteId = jest.fn();
+		const setDeleteModalOpen = jest.fn();
 		const { getByTitle } = render(
 			<MobileLayout
 				paginatedData={[log]}

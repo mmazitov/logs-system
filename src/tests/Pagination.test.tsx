@@ -1,6 +1,5 @@
 import '@testing-library/jest-dom';
 import { fireEvent, render } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
 
 import Pagination from '../components/UI/Pagination';
 
@@ -18,8 +17,8 @@ describe('Pagination', () => {
 	});
 
 	it('calls prevPage and nextPage', () => {
-		const prev = vi.fn();
-		const next = vi.fn();
+		const prev = jest.fn();
+		const next = jest.fn();
 		const { getByTitle } = render(
 			<Pagination
 				currentPage={2}

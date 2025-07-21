@@ -1,6 +1,5 @@
 import '@testing-library/jest-dom';
 import { fireEvent, render } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
 
 import Input from '../components/UI/Input';
 
@@ -13,7 +12,7 @@ describe('Input', () => {
 	});
 
 	it('calls onChange when changed', () => {
-		const handleChange = vi.fn();
+		const handleChange = jest.fn();
 		const { getByRole } = render(
 			<Input name="test" value="" onChange={handleChange} />,
 		);
