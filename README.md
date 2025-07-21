@@ -28,7 +28,7 @@ A modern React application for managing and tracking log entries. Features inclu
 - **[React Spinners](https://www.davidhu.io/react-spinners/)**: Beautiful loading spinners
 - **[Express](https://expressjs.com/)**: Backend API for serving and mutating logs
 - **[Axios](https://axios-http.com/)**: Promise-based HTTP client
-- **[Vitest](https://vitest.dev/)** & **[Testing Library](https://testing-library.com/)**: Unit and integration testing
+- **[Jest](https://jestjs.io/)** & **[Testing Library](https://testing-library.com/)**: Unit and integration testing
 - **[ESLint](https://eslint.org/)** & **[Prettier](https://prettier.io/)**: Code quality and formatting
 
 ## Features
